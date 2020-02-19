@@ -1,15 +1,15 @@
 var Range = function(min, max, initialValue) {
-  this._minValue = min;
-  this._maxValue = max;
+  this._min = min;
+  this._max = max;
   this._currentValue = initialValue;
 };
 
-Range.prototype.getMinValue = function() {
-  return this._minValue;
+Range.prototype.getMin = function() {
+  return this._min;
 };
 
-Range.prototype.getMaxValue = function() {
-  return this._maxValue;
+Range.prototype.getMax = function() {
+  return this._max;
 };
 
 Range.prototype.getCurrentValue = function() {
@@ -17,15 +17,15 @@ Range.prototype.getCurrentValue = function() {
 };
 
 Range.prototype.setValue = function(value) {
-  if (value < this._minValue || value > this._maxValue) return;
+  if (value < this._min || value > this._max) return;
   this._currentValue = value;
 };
 
 Range.prototype.increaseValue = function(value) {
   if (value <= 0) return;
   var expectedValue = this._currentValue + value;
-  if (expectedValue > this._maxValue) {
-    this._currentValue = this._maxValue;
+  if (expectedValue > this._max) {
+    this._currentValue = this._max;
     return;
   }
   this._currentValue = expectedValue;
@@ -34,8 +34,8 @@ Range.prototype.increaseValue = function(value) {
 Range.prototype.decreaseValue = function(value) {
   if (value <= 0) return;
   var expectedValue = this._currentValue - value;
-  if (expectedValue < this._minValue) {
-    this._currentValue = this._minValue;
+  if (expectedValue < this._min) {
+    this._currentValue = this._min;
     return;
   }
   this._currentValue = expectedValue;

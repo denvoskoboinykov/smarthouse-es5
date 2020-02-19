@@ -1,6 +1,6 @@
-var Device = function(name) {
+var Device = function(id, name) {
+  this._id = id;
   this._name = name;
-  this._id = Date.now().toString();
   this._state = false;
 };
 

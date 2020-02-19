@@ -1,28 +1,35 @@
-var Television = function(name, screenDiagonal) {
-  Device.call(this, name);
+var Television = function(
+  id,
+  name,
+  screenDiagonal,
+  volume,
+  saturation,
+  brightness,
+) {
+  Device.call(this, id, name);
   this._screenDiagonal = screenDiagonal;
-  this._volume = new Range(0, 100, 50);
-  this._saturation = new Range(0, 100, 50);
-  this._brightness = new Range(0, 100, 100);
+  this._volume = volume;
+  this._saturation = saturation;
+  this._brightness = brightness;
 };
 
 Television.prototype = Object.create(Device.prototype);
 Television.prototype.constructor = Device;
 
 Television.prototype.getScreenDiagonal = function() {
-  return this._diagonal;
+  return this._screenDiagonal;
 };
 
 Television.prototype.getVolume = function() {
-  return this._diagonal;
+  return this._volume.getCurrentValue();
 };
 
 Television.prototype.getSaturation = function() {
-  return this._diagonal;
+  return this._saturation.getCurrentValue();
 };
 
 Television.prototype.getBrightness = function() {
-  return this._diagonal;
+  return this._brightness.getCurrentValue();
 };
 
 Television.prototype.setVolume = function(value) {
