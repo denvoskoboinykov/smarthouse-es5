@@ -1,19 +1,19 @@
-var Color = function() {
-  this._red = new Range(0, 255, 255);
-  this._green = new Range(0, 255, 255);
-  this._blue = new Range(0, 255, 255);
+var Color = function(red, green, blue) {
+  this._red = red;
+  this._green = green;
+  this._blue = blue;
 };
 
 Color.prototype.getRed = function() {
-  return this._red;
+  return this._red.getCurrentValue();
 };
 
 Color.prototype.getGreen = function() {
-  return this._green;
+  return this._green.getCurrentValue();
 };
 
 Color.prototype.getBlue = function() {
-  return this._blue;
+  return this._blue.getCurrentValue();
 };
 
 Color.prototype.setRedValue = function(value) {

@@ -1,18 +1,22 @@
-var Lamp = function(name) {
-  Device.call(this, name);
-  this._brightness = new Range(0, 100, 100);
-  this._activeColor = new Color();
+var Lamp = function(id, name, brightness, color) {
+  Device.call(this, id, name);
+  this._brightness = brightness;
+  this._activeColor = color;
 };
 
 Lamp.prototype = Object.create(Device.prototype);
 Lamp.prototype.constructor = Device;
 
 Lamp.prototype.getBrightness = function() {
-  return this._diagonal;
+  return this._brightness.getCurrentValue();
 };
 
 Lamp.prototype.getActiveColor = function() {
-  return this._activeColor;
+  return [
+    this._activeColor.getRed(),
+    this._activeColor.getGreen(),
+    this._activeColor.getBlue(),
+  ];
 };
 
 Lamp.prototype.setBrightness = function(value) {

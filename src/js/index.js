@@ -1,6 +1,30 @@
 //some tests
-var television = new Television('LG', 35);
-var lamp = new Lamp('RGB-Lamp-143');
+var volume = new Range(0, 100, 50);
+var saturation = new Range(0, 100, 50);
+var brightnessTV = new Range(0, 100, 100);
+
+var brightnessLamp = new Range(0, 100, 100);
+var color = new Color(
+  new Range(0, 255, 255),
+  new Range(0, 255, 255),
+  new Range(0, 255, 255),
+);
+
+var television = new Television(
+  Date.now().toString(),
+  'LG',
+  35,
+  volume,
+  saturation,
+  brightnessTV,
+);
+
+var lamp = new Lamp(
+  Date.now().toString(),
+  'RGB-Lamp-143',
+  brightnessLamp,
+  color,
+);
 
 smartHouse.addDevice(television);
 smartHouse.addDevice(lamp);
