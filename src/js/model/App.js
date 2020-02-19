@@ -1,1 +1,1 @@
-var smartHouse = new SmartHouse('Cool house');
+var smartHouse = new SmartHouse(Date.now().toString(), 'Cool house');
